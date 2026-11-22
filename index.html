@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Samia Shahrin | Economics, Data & Art</title>
+<meta name="description" content="Portfolio of Samia Shahrin, Economics graduate (University of Dhaka): data analytics dashboards, pencil sketches, photography and professional experience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0a; --bg2:#111111; --card:#161616; --line:#262626; --line2:#333;
+  --fg:#f4f4f2; --muted:#a3a3a0; --dim:#6b6b68;
+  --serif:'Instrument Serif',Georgia,serif; --sans:'Manrope',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --pad:clamp(20px,5vw,72px); --max:1240px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:16px;line-height:1.65;font-weight:400;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:#fff;color:#000}
+:focus-visible{outline:1px solid #fff;outline-offset:3px}
+
+/* grain */
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:200;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* nav */
+header.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .4s,border-color .4s,backdrop-filter .4s;border-bottom:1px solid transparent}
+header.nav.scrolled{background:rgba(10,10,10,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{font-family:var(--serif);font-size:24px;letter-spacing:.01em;display:flex;align-items:center;gap:10px}
+.brand i{font-style:italic;color:var(--muted)}
+.nav-links{display:flex;gap:4px;list-style:none}
+.nav-links a{font-size:13px;color:var(--muted);padding:8px 11px;border-radius:999px;transition:color .25s,background .25s;white-space:nowrap}
+.nav-links a:hover{color:var(--fg)}
+.nav-links a.active{color:#000;background:var(--fg)}
+.burger{display:none;width:40px;height:40px;position:relative}
+.burger span{position:absolute;left:10px;right:10px;height:1px;background:var(--fg);transition:transform .3s,opacity .3s}
+.burger span:nth-child(1){top:15px}.burger span:nth-child(2){top:20px}.burger span:nth-child(3){top:25px}
+.nav.open .burger span:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.nav.open .burger span:nth-child(2){opacity:0}
+.nav.open .burger span:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
+@media (max-width:1060px){
+  .burger{display:block}
+  .nav-links{position:fixed;top:68px;left:0;right:0;bottom:0;background:rgba(10,10,10,.97);flex-direction:column;padding:28px var(--pad);gap:2px;
+    opacity:0;pointer-events:none;transform:translateY(-8px);transition:opacity .3s,transform .3s}
+  .nav.open .nav-links{opacity:1;pointer-events:auto;transform:none}
+  .nav-links a{font-family:var(--serif);font-size:30px;color:var(--fg);padding:8px 0;border-radius:0;display:block;border-bottom:1px solid var(--line)}
+  .nav-links a.active{background:none;color:var(--fg);font-style:italic}
+}
+
+/* sections */
+section{position:relative;padding:clamp(80px,12vw,150px) 0}
+.sec-head{display:grid;grid-template-columns:140px 1fr;gap:24px;margin-bottom:clamp(40px,6vw,72px);align-items:end}
+.sec-num{font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:.1em;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.sec-title{font-family:var(--serif);font-weight:400;font-size:clamp(40px,6.5vw,84px);line-height:.98;letter-spacing:-.015em}
+.sec-title em{color:var(--muted)}
+.sec-lede{grid-column:2;max-width:640px;color:var(--muted);font-size:17px;margin-top:6px}
+@media (max-width:720px){.sec-head{grid-template-columns:1fr;gap:14px}.sec-lede{grid-column:1}.sec-num{border:0;padding:0}}
+.rule{height:1px;background:var(--line)}
+
+/* hero */
+#home{min-height:100svh;padding-top:120px;padding-bottom:60px;display:flex;align-items:center}
+.hero{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,90px);align-items:center}
+.portrait{position:relative}
+.portrait-frame{position:relative;aspect-ratio:4/5;overflow:hidden;background:var(--bg2)}
+.portrait-frame img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;transform:scale(1.04);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.loaded .portrait-frame img{transform:scale(1)}
+.portrait::after{content:"";position:absolute;top:16px;left:16px;right:-16px;aspect-ratio:4/5;border:1px solid var(--line2);z-index:-1}
+.portrait-tag{position:absolute;left:0;bottom:-38px;display:flex;gap:18px}
+.hero-kicker{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.hero-kicker::before{content:"";width:36px;height:1px;background:var(--muted)}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(58px,9.5vw,138px);line-height:.9;letter-spacing:-.025em}
+.hero h1 span{display:block}
+.hero h1 em{color:var(--muted)}
+.headline{margin:28px 0 22px;display:flex;flex-wrap:wrap;gap:8px 0;font-size:14.5px;color:var(--fg);letter-spacing:.02em}
+.headline span{display:inline-flex;align-items:center}
+.headline span+span::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--dim);margin:0 14px}
+.intro{color:var(--muted);max-width:600px;font-size:16px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border:1px solid var(--fg);font-size:13.5px;letter-spacing:.04em;transition:background .3s,color .3s,gap .3s}
+.btn.solid{background:var(--fg);color:#000}
+.btn:hover{gap:16px}
+.btn.solid:hover{background:transparent;color:var(--fg)}
+.btn.ghost{border-color:var(--line2)}
+.btn.ghost:hover{border-color:var(--fg)}
+.btn svg{width:14px;height:14px}
+.scroll-cue{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:10px}
+.scroll-cue i{width:1px;height:44px;background:linear-gradient(var(--muted),transparent);animation:cue 2.4s infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .portrait{max-width:420px;width:88%}
+  .portrait-tag{position:static;margin-top:28px;flex-wrap:wrap;gap:6px 18px}
+  .headline{flex-direction:column;gap:6px}
+  .headline span+span::before{display:none}
+}
+
+/* profile */
+.profile-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,6vw,80px)}
+.profile-text p{font-family:var(--serif);font-size:clamp(23px,2.6vw,32px);line-height:1.32;letter-spacing:-.005em}
+.profile-text p+p{margin-top:22px;font-family:var(--sans);font-size:16px;line-height:1.7;color:var(--muted)}
+.stats{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.stat{padding:26px 22px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.4vw,56px);line-height:1}
+.stat span{display:block;margin-top:10px;font-size:13px;color:var(--muted);line-height:1.45}
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);margin-top:clamp(48px,7vw,80px);border-top:1px solid var(--line)}
+.pillar{padding:26px 22px 0 0}
+.pillar h4{font-weight:500;font-size:15px;margin:10px 0 6px}
+.pillar p{font-size:14px;color:var(--muted)}
+@media (max-width:900px){.profile-grid{grid-template-columns:1fr}.pillars{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.pillars{grid-template-columns:1fr}}
+
+/* analytics */
+#analytics{background:var(--bg2)}
+.projects{display:flex;flex-direction:column;gap:clamp(56px,8vw,110px)}
+.project{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,4fr);gap:clamp(24px,4vw,56px);align-items:start}
+.project:nth-child(even){grid-template-columns:minmax(0,4fr) minmax(0,7fr)}
+.project:nth-child(even) .shot{order:2}
+.shot{position:relative;border:1px solid var(--line2);background:#000;overflow:hidden;cursor:zoom-in}
+.shot-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--line2);background:#0e0e0e}
+.shot-bar i{width:8px;height:8px;border-radius:50%;background:#2e2e2e}
+.shot-bar span{margin-left:10px;font-family:var(--mono);font-size:10.5px;color:var(--dim);letter-spacing:.06em}
+.shot img{width:100%;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
+.shot:hover img{transform:scale(1.025)}
+.shot .zoom{position:absolute;right:14px;bottom:14px;background:rgba(0,0,0,.75);border:1px solid var(--line2);padding:7px 11px;font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;opacity:0;transform:translateY(6px);transition:.35s}
+.shot:hover .zoom{opacity:1;transform:none}
+.project-info .mono{display:block;margin-bottom:14px}
+.project-info h3{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.4vw,44px);line-height:1.05;margin-bottom:16px}
+.project-info p.desc{color:var(--muted);font-size:15.5px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin:20px 0 26px}
+.tag{font-size:12px;padding:5px 11px;border:1px solid var(--line2);border-radius:999px;color:var(--muted)}
+.insights{list-style:none;border-top:1px solid var(--line2)}
+.insights li{display:grid;grid-template-columns:28px 1fr;padding:13px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+.insights li::before{content:counter(i,decimal-leading-zero);counter-increment:i;font-family:var(--mono);font-size:11px;color:var(--dim);padding-top:3px}
+.insights{counter-reset:i}
+.insights-label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg);margin-bottom:10px}
+@media (max-width:900px){.project,.project:nth-child(even){grid-template-columns:1fr}.project:nth-child(even) .shot{order:0}}
+
+/* galleries */
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:34px}
+.filter{font-size:13px;padding:8px 16px;border:1px solid var(--line2);border-radius:999px;color:var(--muted);transition:.25s}
+.filter:hover{color:var(--fg);border-color:var(--muted)}
+.filter[aria-pressed="true"]{background:var(--fg);color:#000;border-color:var(--fg)}
+.masonry{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;align-items:start}
+.masonry .tile{margin-bottom:0}
+.tile{break-inside:avoid;margin-bottom:18px;position:relative;overflow:hidden;cursor:zoom-in;background:var(--card);display:block;width:100%;text-align:left}
+.tile img{width:100%;transition:transform 1s cubic-bezier(.2,.7,.2,1),filter .6s}
+.tile:hover img{transform:scale(1.04)}
+.tile .cap{position:absolute;left:0;right:0;bottom:0;padding:48px 18px 16px;background:linear-gradient(transparent,rgba(0,0,0,.82));opacity:0;transform:translateY(8px);transition:.45s}
+.tile:hover .cap,.tile:focus-visible .cap{opacity:1;transform:none}
+.cap h4{font-family:var(--serif);font-weight:400;font-size:24px;line-height:1.1}
+.cap span{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#cfcfcc}
+.tile.hide{display:none}
+@media (hover:none){.tile .cap{opacity:1;transform:none;padding-top:36px}}
+#sketches .tile img{filter:grayscale(.15) contrast(1.02)}
+#sketches .tile:hover img{filter:none}
+.sketch-note{display:flex;gap:40px;flex-wrap:wrap;margin-top:44px;padding-top:24px;border-top:1px solid var(--line)}
+#photography{background:var(--bg2)}
+.photo-masonry{display:flex;gap:14px;align-items:flex-start}
+.photo-masonry .col{flex:1;min-width:0;display:flex;flex-direction:column;gap:14px}
+.photo-masonry .tile{margin-bottom:0}
+
+/* experience */
+.timeline{position:relative}
+.role{display:grid;grid-template-columns:200px 1fr;gap:clamp(20px,4vw,60px);padding:36px 0;border-top:1px solid var(--line)}
+.role:last-child{border-bottom:1px solid var(--line)}
+.role-when{font-family:var(--mono);font-size:12px;color:var(--muted);letter-spacing:.06em;padding-top:8px}
+.role h3{font-family:var(--serif);font-weight:400;font-size:clamp(28px,3vw,38px);line-height:1.1}
+.role h3 em{color:var(--muted)}
+.role .org{font-size:14px;color:var(--muted);margin:6px 0 16px}
+.role ul{list-style:none}
+.role li{position:relative;padding-left:22px;color:#d6d6d3;font-size:15px;margin-bottom:8px}
+.role li::before{content:"";position:absolute;left:0;top:12px;width:10px;height:1px;background:var(--dim)}
+.role:hover h3{font-style:italic}
+@media (max-width:720px){.role{grid-template-columns:1fr;gap:8px}}
+.subhead{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.6vw,46px);margin:clamp(64px,9vw,110px) 0 28px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:var(--line);border:1px solid var(--line)}
+.card{background:var(--bg);padding:26px 24px;transition:background .3s}
+.card:hover{background:var(--card)}
+.card .mono{display:block;margin-bottom:14px}
+.card h4{font-weight:500;font-size:16px;line-height:1.4}
+.card p{font-size:14px;color:var(--muted);margin-top:8px}
+
+/* skills */
+#skills{background:var(--bg2)}
+.edu{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,5vw,70px);margin-bottom:clamp(64px,9vw,110px)}
+.edu-main{border:1px solid var(--line2);padding:clamp(26px,3.4vw,44px);position:relative}
+.edu-main h3{font-family:var(--serif);font-weight:400;font-size:clamp(30px,3.4vw,44px);line-height:1.05;margin:14px 0 20px}
+.edu-main dl{display:grid;grid-template-columns:auto 1fr;gap:10px 20px;font-size:14.5px}
+.edu-main dt{color:var(--dim);font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding-top:3px}
+.cgpa{position:absolute;top:clamp(26px,3.4vw,44px);right:clamp(26px,3.4vw,44px);text-align:right}
+.cgpa b{display:block;font-family:var(--serif);font-weight:400;font-size:46px;line-height:1}
+.edu-list{list-style:none}
+.edu-list li{display:grid;grid-template-columns:1fr auto;gap:16px;padding:20px 0;border-bottom:1px solid var(--line)}
+.edu-list li:first-child{border-top:1px solid var(--line)}
+.edu-list h4{font-weight:500;font-size:16px}
+.edu-list p{font-size:14px;color:var(--muted)}
+.edu-list .yr{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right}
+@media (max-width:900px){.edu{grid-template-columns:1fr}}
+.skill-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,40px)}
+.sg h4{font-family:var(--serif);font-weight:400;font-size:28px;margin:12px 0 18px;padding-bottom:16px;border-bottom:1px solid var(--line2)}
+.sg ul{list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.sg li{font-size:13.5px;padding:8px 14px;border:1px solid var(--line2);transition:.25s}
+.sg li:hover{background:var(--fg);color:#000;border-color:var(--fg)}
+.langs{margin-top:44px;display:flex;flex-wrap:wrap;gap:32px;padding-top:24px;border-top:1px solid var(--line)}
+.langs div b{display:block;font-weight:500;font-size:15px;margin-top:4px}
+@media (max-width:900px){.skill-groups{grid-template-columns:1fr}}
+
+/* about */
+.about{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(30px,6vw,90px);align-items:center}
+.about-art{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.about-art img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.about-art img:nth-child(2){margin-top:48px}
+.about-text blockquote{font-family:var(--serif);font-size:clamp(30px,3.6vw,48px);line-height:1.12;letter-spacing:-.01em;margin-bottom:28px}
+.about-text blockquote em{color:var(--muted)}
+.about-text p{color:var(--muted);font-size:16px;margin-bottom:16px;max-width:620px}
+@media (max-width:860px){.about{grid-template-columns:1fr}.about-art{max-width:440px}}
+
+/* contact */
+#contact{padding-bottom:60px}
+.contact{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,90px)}
+.contact-big{font-family:var(--serif);font-size:clamp(46px,7vw,96px);line-height:.95;letter-spacing:-.02em;margin-bottom:30px}
+.contact-big em{color:var(--muted)}
+.email-row{display:flex;flex-wrap:wrap;align-items:center;gap:12px;padding:18px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:28px}
+.email-row a{font-size:clamp(16px,1.8vw,20px)}
+.copy{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border:1px solid var(--line2);color:var(--muted);transition:.25s}
+.copy:hover{color:var(--fg);border-color:var(--fg)}
+.socials{list-style:none}
+.socials a{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line);transition:padding .3s}
+.socials a:hover{padding-left:10px}
+.socials a span:first-child{font-size:15px}
+.socials a span:last-child{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.06em}
+form{display:grid;grid-template-columns:1fr 1fr;gap:26px 22px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field.full{grid-column:1/-1}
+.field label{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.field input,.field textarea{background:transparent;border:0;border-bottom:1px solid var(--line2);color:var(--fg);font:inherit;font-size:16px;padding:10px 0;transition:border-color .3s;border-radius:0}
+.field textarea{min-height:130px;resize:vertical}
+.field input:focus,.field textarea:focus{outline:none;border-color:var(--fg)}
+.form-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:18px}
+.form-msg{font-size:14px;color:var(--muted);max-width:420px}
+.form-msg a{text-decoration:underline;text-underline-offset:3px;color:var(--fg)}
+@media (max-width:860px){.contact{grid-template-columns:1fr}}
+@media (max-width:520px){form{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--line);padding:30px 0}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px;color:var(--dim)}
+.foot a:hover{color:var(--fg)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(26px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:300;background:rgba(5,5,5,.96);display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:opacity .35s}
+.lb.open{opacity:1;pointer-events:auto}
+.lb-top{display:flex;justify-content:space-between;align-items:center;padding:16px var(--pad)}
+.lb-stage{flex:1;display:flex;align-items:center;justify-content:center;padding:0 clamp(12px,7vw,100px);min-height:0;position:relative}
+.lb-stage img{max-width:100%;max-height:100%;object-fit:contain;transition:opacity .3s,transform .4s}
+.lb.loading .lb-stage img{opacity:0;transform:scale(.985)}
+.lb-cap{padding:16px var(--pad) 24px;text-align:center;min-height:96px}
+.lb-cap h4{font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.1}
+.lb-cap p{color:var(--muted);font-size:14px;margin-top:6px;max-width:640px;margin-left:auto;margin-right:auto}
+.lb-btn{width:46px;height:46px;border:1px solid var(--line2);border-radius:50%;display:grid;place-items:center;transition:.25s;background:rgba(10,10,10,.6)}
+.lb-btn:hover{background:var(--fg);color:#000;border-color:var(--fg)}
+.lb-btn svg{width:16px;height:16px}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%)}
+.lb-prev{left:clamp(8px,2vw,30px)}.lb-next{right:clamp(8px,2vw,30px)}
+.lb.single .lb-prev,.lb.single .lb-next{display:none}
+.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,20px);background:var(--fg);color:#000;padding:10px 18px;font-size:13px;opacity:0;transition:.35s;z-index:400;pointer-events:none}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+</style>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a href="#home" class="brand" data-go="home" aria-label="Samia Shahrin, home">Samia <i>Shahrin</i></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navlinks"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navlinks">
+      <li><a href="#home" data-go="home">Home</a></li>
+      <li><a href="#profile" data-go="profile">Professional Profile</a></li>
+      <li><a href="#analytics" data-go="analytics">Data Analytics</a></li>
+      <li><a href="#sketches" data-go="sketches">Pencil Sketches</a></li>
+      <li><a href="#photography" data-go="photography">Photography</a></li>
+      <li><a href="#experience" data-go="experience">Experience</a></li>
+      <li><a href="#skills" data-go="skills">Skills</a></li>
+      <li><a href="#contact" data-go="contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+<!-- 1. HERO -->
+<section id="home">
+  <div class="wrap hero">
+    <div class="portrait rv">
+      <div class="portrait-frame"><img src="images/profile.jpg" alt="Portrait of Samia Shahrin" width="964" height="1280" fetchpriority="high"></div>
+      <div class="portrait-tag mono"><span>Dhaka, Bangladesh</span><span>Economics · Data · Art</span></div>
+    </div>
+    <div>
+      <div class="hero-kicker mono rv d1">Portfolio — 2026</div>
+      <h1 class="rv d2"><span>Samia</span><span><em>Shahrin</em></span></h1>
+      <div class="headline rv d3"><span>Economics Graduate</span><span>Data Analytics Enthusiast</span><span>Creative Thinker</span></div>
+      <p class="intro rv d3">I am an Economics graduate from Eden Mohila College, affiliated with the University of Dhaka, with a CGPA of 3.32/4.00. I have a strong interest in data analytics, financial analysis, business intelligence, and creative arts. My skills include Microsoft Excel, data analysis, dashboard development, and data visualization. Beyond my analytical interests, I am passionate about photography, pencil sketching, and creative design. I enjoy combining analytical thinking with creativity to produce meaningful and visually engaging work.</p>
+      <div class="cta rv d4">
+        <a href="#analytics" data-go="analytics" class="btn solid">Explore My Work <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></a>
+        <a href="#contact" data-go="contact" class="btn ghost">Contact Me</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<!-- 2. PROFESSIONAL SUMMARY -->
+<section id="profile">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">01 / Profile</div>
+      <h2 class="sec-title">Professional <em>Summary</em></h2>
+    </div>
+    <div class="profile-grid">
+      <div class="profile-text rv">
+        <p>An Economics graduate who turns numbers into decisions, with a year of hands-on experience across education operations, sales and economic research in Dhaka.</p>
+        <p>As a Project Executive at 10 Minute School, I coordinated online learning programs at scale and built Excel dashboards to track budgets, attendance and instructor performance. Earlier roles in sales at Arogga and as an Economic Researcher at Global Intelligence Research Academy sharpened my customer focus and my quantitative reasoning. Alongside work, I have competed in case competitions, contributed to research on sustainable development in Bangladesh, and led volunteer teams in community projects.</p>
+      </div>
+      <div class="stats rv d1">
+        <div class="stat"><b>5,000+</b><span>learners served across 20+ coordinated online programs</span></div>
+        <div class="stat"><b>30%</b><span>less weekly reporting time through Excel dashboards</span></div>
+        <div class="stat"><b>82→94%</b><span>instructor session compliance after tracker rollout</span></div>
+        <div class="stat"><b>95%</b><span>on-time class delivery across 25+ instructors</span></div>
+      </div>
+    </div>
+    <div class="pillars">
+      <div class="pillar rv"><span class="mono">Academics</span><h4>BSS in Economics</h4><p>Eden Mohila College, University of Dhaka. CGPA 3.32/4.00.</p></div>
+      <div class="pillar rv d1"><span class="mono">Experience</span><h4>Operations, sales, research</h4><p>10 Minute School, Arogga and Global Intelligence Research Academy.</p></div>
+      <div class="pillar rv d2"><span class="mono">Research</span><h4>Sustainable development</h4><p>Ongoing research on sustainability and economic outcomes in Bangladesh.</p></div>
+      <div class="pillar rv d3"><span class="mono">Community</span><h4>Leadership & volunteering</h4><p>Team Leader at We, Not I; volunteer with GDG Dhaka and more.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. DATA ANALYTICS -->
+<section id="analytics">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">02 / Analytics</div>
+      <h2 class="sec-title">Data Analytics <em>&amp; Dashboards</em></h2>
+      <p class="sec-lede">Business intelligence dashboards covering sales performance, revenue composition and the relationships behind the numbers. Select any screenshot to view it in full.</p>
+    </div>
+    <div class="projects" id="projects"></div>
+  </div>
+</section>
+
+<!-- 4. SKETCHES -->
+<section id="sketches">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">03 / Drawing</div>
+      <h2 class="sec-title">Pencil Sketches <em>&amp; Drawing</em></h2>
+      <p class="sec-lede">Graphite and ink first: mandala patterns, everyday objects and small rituals of tea, followed by mixed media and paint.</p>
+    </div>
+    <div class="filters rv" role="group" aria-label="Filter artwork" id="artFilters"></div>
+    <div class="masonry" id="artGrid"></div>
+  </div>
+</section>
+
+<!-- 5. PHOTOGRAPHY -->
+<section id="photography">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">04 / Photography</div>
+      <h2 class="sec-title">Light, <em>Shadow</em> &amp; Stillness</h2>
+      <p class="sec-lede">Old campus architecture at golden hour, and quiet still lifes shaped by window light.</p>
+    </div>
+    <div class="filters rv" role="group" aria-label="Filter photographs" id="photoFilters"></div>
+    <div class="photo-masonry" id="photoGrid"></div>
+  </div>
+</section>
+
+<!-- 6. EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">05 / Experience</div>
+      <h2 class="sec-title">Experience <em>&amp; Achievements</em></h2>
+    </div>
+    <div class="timeline" id="roles"></div>
+
+    <h3 class="subhead rv">Research &amp; Competitions</h3>
+    <div class="cards" id="research"></div>
+
+    <h3 class="subhead rv">Achievements &amp; Certifications</h3>
+    <div class="cards" id="certs"></div>
+
+    <h3 class="subhead rv">Leadership &amp; Volunteering</h3>
+    <div class="cards" id="volunteer"></div>
+  </div>
+</section>
+
+<!-- 7. EDUCATION & SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">06 / Education &amp; Skills</div>
+      <h2 class="sec-title">Education <em>&amp; Skills</em></h2>
+    </div>
+    <div class="edu">
+      <div class="edu-main rv">
+        <span class="mono">Bachelor's degree</span>
+        <div class="cgpa"><b>3.32</b><span class="mono">CGPA / 4.00</span></div>
+        <h3>Bachelor of Social Science<br><em style="color:var(--muted)">in Economics</em></h3>
+        <dl>
+          <dt>Institution</dt><dd>Eden Mohila College</dd>
+          <dt>Affiliation</dt><dd>University of Dhaka</dd>
+          <dt>Department</dt><dd>Economics</dd>
+          <dt>Years</dt><dd>2021 – 2025</dd>
+        </dl>
+      </div>
+      <ul class="edu-list rv d1">
+        <li><div><h4>Higher Secondary Certificate (HSC), Science</h4><p>BCIC College · GPA 5.00 / 5.00</p></div><div class="yr">2018 – 2020</div></li>
+        <li><div><h4>Secondary School Certificate (SSC), Science</h4><p>Monipur High School and College · GPA 5.00 / 5.00</p></div><div class="yr">2008 – 2018</div></li>
+      </ul>
+    </div>
+    <div class="skill-groups" id="skillGroups"></div>
+    <div class="langs rv">
+      <div><span class="mono">Language</span><b>Bengali — Native</b></div>
+      <div><span class="mono">Language</span><b>English — Professional working proficiency</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- 8. ABOUT -->
+<section id="about">
+  <div class="wrap about">
+    <div class="about-art rv">
+      <img src="images/sketch-teacup.jpg" alt="Ink mandala teacup drawing" width="934" height="1280" loading="lazy">
+      <img src="images/photo-archway.jpg" alt="Campus path framed by an arch" width="960" height="1280" loading="lazy">
+    </div>
+    <div class="about-text">
+      <div class="sec-num rv" style="display:inline-block;margin-bottom:26px">07 / About</div>
+      <blockquote class="rv d1">Half analyst, half artist, <em>and convinced the two make each other better.</em></blockquote>
+      <p class="rv d2">Economics taught me to look for the pattern underneath the noise: why people choose what they choose, and what the numbers say about it. I enjoy the practical side of that most, building a tracker that saves a team hours, or a dashboard that makes a decision obvious.</p>
+      <p class="rv d3">Away from spreadsheets, I sketch, paint and photograph. A mandala and a well-structured dataset have more in common than you might think: both reward patience, precision and an eye for balance. I bring that same care to every project, analytical or creative.</p>
+    </div>
+  </div>
+</section>
+
+<div class="wrap"><div class="rule"></div></div>
+
+<!-- 9. CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="sec-num">08 / Contact</div>
+      <h2 class="sec-title">Let's <em>Connect</em></h2>
+    </div>
+    <div class="contact">
+      <div class="rv">
+        <p class="contact-big">Open to <em>opportunities</em> &amp; conversations.</p>
+        <div class="email-row">
+          <a href="mailto:samiashahrin33@gmail.com">samiashahrin33@gmail.com</a>
+          <button class="copy" data-copy="samiashahrin33@gmail.com">Copy</button>
+        </div>
+        <ul class="socials" id="socials"></ul>
+      </div>
+      <form id="contactForm" class="rv d1" novalidate>
+        <div class="field"><label for="f-name">Full Name</label><input id="f-name" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="f-email">Email Address</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        <div class="field full"><label for="f-subject">Subject</label><input id="f-subject" name="subject" required></div>
+        <div class="field full"><label for="f-msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+        <div class="form-foot">
+          <button type="submit" class="btn solid">Send Message <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M1 8h13M9 3l5 5-5 5"/></svg></button>
+          <p class="form-msg" id="formMsg" aria-live="polite"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© 2026 Samia Shahrin. All artwork and photographs are original.</span>
+    <a href="#home" data-go="home">Back to top ↑</a>
+  </div>
+</footer>
+
+<!-- lightbox -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true">
+  <div class="lb-top"><span class="mono" id="lbCount"></span><button class="lb-btn" id="lbClose" aria-label="Close"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 3l10 10M13 3L3 13"/></svg></button></div>
+  <div class="lb-stage">
+    <button class="lb-btn lb-prev" id="lbPrev" aria-label="Previous image"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M10 3L5 8l5 5"/></svg></button>
+    <img id="lbImg" alt="">
+    <button class="lb-btn lb-next" id="lbNext" aria-label="Next image"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 3l5 5-5 5"/></svg></button>
+  </div>
+  <div class="lb-cap"><h4 id="lbTitle"></h4><p id="lbDesc"></p></div>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+/* =====================================================================
+   CONTENT — edit this block to update the site.
+   To add an image: put the file in /images and add an entry below.
+   ===================================================================== */
+const CONTENT = {
+  projects: [
+    {
+      kicker: "Project 01 · Revenue composition",
+      title: "Revenue & Channel Mix Dashboard",
+      img: "images/dash-part-to-whole.jpg", w: 1280, h: 800,
+      desc: "A part-to-whole view of where revenue and orders come from, broken down by product, region and sales channel using pie, donut, half-donut, rose, funnel and pyramid charts.",
+      tools: ["BI dashboard", "Pie & donut charts", "Funnel & pyramid", "Data visualization"],
+      insights: [
+        "Laptops and phones make up the largest share of product revenue; headsets are the smallest slice.",
+        "Online is the leading order channel, ahead of Retail and Partner.",
+        "Revenue is spread fairly evenly across East, North, South and West, with no single region dominating."
+      ]
+    },
+    {
+      kicker: "Project 02 · Sales performance over time",
+      title: "Daily Sales & Revenue Trends",
+      img: "images/dash-line-area.jpg", w: 1280, h: 784,
+      desc: "Time-series tracking of daily revenue, units sold and order counts from January 2025 to September 2026, with smoothed, stepped, area, stacked and 100% share views plus range sliders to zoom into any period.",
+      tools: ["BI dashboard", "Line & area charts", "Trend analysis", "Channel breakdown"],
+      insights: [
+        "Daily revenue trends upward over the period, with peaks approaching 25K–30K in 2026.",
+        "Units and orders rise alongside revenue, so growth is visible across volume measures, not just sales value.",
+        "Stacked and 100% area views separate the Online, Retail and Partner contribution to each day's revenue."
+      ]
+    },
+    {
+      kicker: "Project 03 · Business performance drivers",
+      title: "Relationship & Performance Analysis",
+      img: "images/dash-relationship.jpg", w: 1280, h: 816,
+      desc: "Exploring what drives performance: scatter and bubble charts relate daily volume to revenue and price, a heatmap compares revenue by region and product, and a radar chart profiles each product's units and orders.",
+      tools: ["BI dashboard", "Scatter & bubble", "Heatmap", "Radar chart"],
+      insights: [
+        "Units and revenue show a clear positive relationship: higher-volume days bring in more revenue.",
+        "Laptops are the top revenue product in every region, peaking at 513.5K in the West.",
+        "Headsets generate the least revenue everywhere (32.9K–42.9K per region), a candidate for review."
+      ]
+    }
+  ],
+
+  // Artwork: "sketch" items are always shown first.
+  art: [
+    { img:"images/sketch-cha-samosa.jpg", w:918,  h:1280, cat:"sketch", title:"Cha & Samosa",        medium:"Pencil & ink",       desc:"A glass of tea and a samosa framed by twin mandala suns." },
+    { img:"images/sketch-teacup.jpg",     w:934,  h:1280, cat:"sketch", title:"Mandala Teacup",      medium:"Ink & pencil shading", desc:"Patterned bubbles rising from a mandala teacup." },
+    { img:"images/sketch-crystal-mug.jpg",w:910,  h:1280, cat:"sketch", title:"Crystal in a Mug",    medium:"Ink with colour accents", desc:"Line work with mandala detailing and small touches of colour." },
+    { img:"images/art-chai-pour.jpg",     w:960,  h:1280, cat:"paint",  title:"The Pour",            medium:"Paint in sketchbook", desc:"Milk tea strained into two glasses." },
+    { img:"images/art-eye.jpg",           w:960,  h:1280, cat:"paint",  title:"The Gaze",            medium:"Colour study",       desc:"An eye built from bold, saturated strokes." },
+    { img:"images/art-mandala-duet.jpg",  w:960,  h:1280, cat:"mixed",  title:"Mandala Duet",        medium:"Ink & watercolour",  desc:"Two figures in front of a hand-drawn mandala." },
+    { img:"images/art-telephone.jpg",     w:892,  h:1280, cat:"paint",  title:"Ring Ring",           medium:"Paint in sketchbook",desc:"A red rotary telephone with an expressive coiled cord." }
+  ],
+  artFilters: [ ["all","All work"], ["sketch","Sketches"], ["mixed","Mixed media"], ["paint","Paintings"] ],
+
+  photos: [
+    { img:"images/photo-archway.jpg",     w:960, h:1280, cat:"architecture", title:"Through the Arch", desc:"A garden path framed by a scalloped arch at dusk." },
+    { img:"images/photo-tea-for-two.jpg", w:720, h:1280, cat:"still",        title:"Cha for Two",      desc:"Two cups of milk tea in morning light." },
+    { img:"images/photo-sunset.jpg",      w:960, h:1280, cat:"architecture", title:"Last Light",       desc:"Sunset behind red-brick colonial architecture." },
+    { img:"images/photo-glass-tea.jpg",   w:960, h:1280, cat:"still",        title:"Amber Hour",       desc:"Black tea in glass, periwinkle flowers and leaf shadows." },
+    { img:"images/photo-petals.jpg",      w:720, h:1280, cat:"light",        title:"Fallen Petals",    desc:"Periwinkle blooms scattered through dappled shadow." }
+  ],
+  photoFilters: [ ["all","All"], ["architecture","Architecture"], ["still","Still life"], ["light","Light & shadow"] ],
+  photoCatLabel: { architecture:"Architecture", still:"Still life", light:"Light & shadow" },
+
+  roles: [
+    { when:"Mar 2026 – Aug 2026", title:"Project Executive", org:"10 Minute School · Dhaka", points:[
+      "Coordinated 20+ online learning programs serving 5,000+ learners and 25+ instructors, achieving 95% on-time class delivery.",
+      "Tracked BDT 8 lakh monthly budgets and flagged variances, cutting overspending by 12% and weekly reporting time by 30% through Excel dashboards.",
+      "Built attendance and performance trackers that lifted instructor session compliance from 82% to 94%.",
+      "Analysed class performance and led 6 promotional campaigns with marketing teams, lifting attendance by 18% and enrolments by 15%."
+    ]},
+    { when:"Nov 2025 – Feb 2026", title:"Junior Executive", org:"Arogga · Dhaka", points:[
+      "Pitched product offers and campaigns to 100+ customers weekly, achieving a 20% conversion rate.",
+      "Supported the sales team in beating monthly targets by 15% for 3 consecutive months.",
+      "Managed 300+ customer relationships, raising repeat orders by 10% and resolving 90% of queries on first contact."
+    ]},
+    { when:"Aug 2025 – Aug 2026", title:"Economic Researcher", org:"Global Intelligence Research Academy · Dhaka", points:[
+      "Conducted economic research and data analysis to support evidence-based decision making.",
+      "Contributed to research-based reports by applying economic concepts and quantitative reasoning."
+    ]}
+  ],
+
+  research: [
+    { tag:"Research · Ongoing", title:"Sustainable Development Practices and Economic Sustainability in Bangladesh", desc:"Research on sustainable development and its economic outcomes." },
+    { tag:"Case Competition", title:"AUPCC, Acadia University, Canada", desc:"Developed evidence-based economic policy recommendations using economic analysis." },
+    { tag:"Case Competition · 2024", title:"Eden Business Club Inter College Case Competition", desc:"Second Runner-Up (Finance Department)." }
+  ],
+
+  certs: [
+    { tag:"Certification", title:"Data Analysis in Excel", desc:"DataCamp" },
+    { tag:"Programme · 2025", title:"Aspire Leaders Program", desc:"Aspire Institute" },
+    { tag:"Certification", title:"Research Paper Writing and Poster Presentation", desc:"CARSIT" },
+    { tag:"Certification", title:"Presentation and Networking", desc:"British Council" },
+    { tag:"Olympiad · 2024", title:"Climate Science Olympiad", desc:"Semi-Finalist" },
+    { tag:"Club", title:"Eden Business Club, Finance Department", desc:"Managed budget planning and event expense tracking." }
+  ],
+
+  volunteer: [
+    { tag:"2019 – 2022", title:"Team Leader, We, Not I", desc:"Supervised volunteer teams in community projects; coordinated fundraising and relief distribution." },
+    { tag:"Volunteer", title:"Google Developer Group (GDG) Dhaka", desc:"Event volunteer." },
+    { tag:"Volunteer", title:"ICJR Conference", desc:"Conference volunteer." },
+    { tag:"Volunteer", title:"National STEAM Olympiad", desc:"Olympiad volunteer." }
+  ],
+
+  skills: [
+    { label:"01", name:"Data & Analysis", items:["Microsoft Excel","XLOOKUP & INDEX-MATCH","SUMIFS & Goal Seek","Pivot Tables","Excel Dashboard Development","Data Analysis","Data Visualization","Charts & Reporting","Financial Analysis","Financial Reporting","Market Research","Economic Analysis","IFRS Basics"] },
+    { label:"02", name:"Tools", items:["Microsoft Excel","Google Sheets","Microsoft PowerPoint","Microsoft Word","Canva","BI Dashboards"] },
+    { label:"03", name:"Creative", items:["Photography","Pencil Sketching","Drawing & Illustration","Mandala & Ink Art","Painting","Creative Design"] }
+  ],
+
+  socials: [
+    { name:"LinkedIn",  handle:"in/samia-shahrin",        url:"https://www.linkedin.com/in/samia-shahrin/" },
+    { name:"Instagram", handle:"@samia_shahrin_rifa",     url:"https://www.instagram.com/samia_shahrin_rifa" },
+    { name:"TikTok",    handle:"@life.with.rifa6",        url:"https://www.tiktok.com/@life.with.rifa6" },
+    { name:"Email",     handle:"samiashahrin33@gmail.com",url:"mailto:samiashahrin33@gmail.com" }
+  ]
+};
+
+/* ===================================================================== */
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* projects */
+$('#projects').innerHTML = CONTENT.projects.map((p,i) => `
+  <article class="project">
+    <button class="shot rv" data-lb="projects" data-i="${i}" aria-label="Enlarge ${esc(p.title)} screenshot">
+      <div class="shot-bar"><i></i><i></i><i></i><span>${esc(p.title.toLowerCase())}</span></div>
+      <img src="${p.img}" alt="${esc(p.title)} dashboard screenshot" width="${p.w}" height="${p.h}" loading="lazy">
+      <span class="zoom">View full ↗</span>
+    </button>
+    <div class="project-info rv d1">
+      <span class="mono">${esc(p.kicker)}</span>
+      <h3>${esc(p.title)}</h3>
+      <p class="desc">${esc(p.desc)}</p>
+      <div class="tags">${p.tools.map(t=>`<span class="tag">${esc(t)}</span>`).join('')}</div>
+      <div class="insights-label">Key insights</div>
+      <ul class="insights">${p.insights.map(t=>`<li>${esc(t)}</li>`).join('')}</ul>
+    </div>
+  </article>`).join('');
+
+/* galleries */
+const artSorted = [...CONTENT.art].sort((a,b) => (a.cat==='sketch'?0:1) - (b.cat==='sketch'?0:1));
+function tile(item, group, i, label){
+  return `<button class="tile rv" data-cat="${item.cat}" data-lb="${group}" data-i="${i}" aria-label="Open ${esc(item.title)}">
+    <img src="${item.img}" alt="${esc(item.title)}: ${esc(item.desc)}" width="${item.w}" height="${item.h}" loading="lazy">
+    <div class="cap"><span>${esc(label)}</span><h4>${esc(item.title)}</h4></div></button>`;
+}
+$('#artGrid').innerHTML = artSorted.map((a,i)=>tile(a,'art',i,a.medium)).join('');
+$('#photoGrid').innerHTML = CONTENT.photos.map((p,i)=>tile(p,'photos',i,CONTENT.photoCatLabel[p.cat])).join('');
+
+function filters(el, list, grid){
+  el.innerHTML = list.map(([k,l],i)=>`<button class="filter" data-f="${k}" aria-pressed="${i===0}">${l}</button>`).join('');
+  el.addEventListener('click', e => {
+    const b = e.target.closest('.filter'); if(!b) return;
+    el.querySelectorAll('.filter').forEach(x=>x.setAttribute('aria-pressed', x===b));
+    const f = b.dataset.f;
+    grid.querySelectorAll('.tile').forEach(t => {
+      t.classList.toggle('hide', f!=='all' && t.dataset.cat!==f);
+      t.classList.add('in');
+    });
+  });
+}
+filters($('#artFilters'), CONTENT.artFilters, $('#artGrid'));
+filters($('#photoFilters'), CONTENT.photoFilters, $('#photoGrid'));
+
+/* photo masonry in reading order (1st, 2nd, 3rd across the top row, then 4th, 5th...) */
+const photoTiles = [...$('#photoGrid').querySelectorAll('.tile')];
+let photoCols = 0;
+function layoutPhotos(force){
+  const n = innerWidth > 900 ? 3 : innerWidth > 560 ? 2 : 1;
+  if(n === photoCols && !force) return; photoCols = n;
+  const grid = $('#photoGrid'), cols = [];
+  grid.innerHTML = '';
+  for(let i=0;i<n;i++){ const c=document.createElement('div'); c.className='col'; grid.appendChild(c); cols.push(c); }
+  const vis = photoTiles.filter(t=>!t.classList.contains('hide'));
+  vis.forEach((t,i)=>cols[i%n].appendChild(t));
+  photoTiles.filter(t=>t.classList.contains('hide')).forEach(t=>cols[0].appendChild(t));
+}
+layoutPhotos(true);
+addEventListener('resize', () => layoutPhotos(false));
+$('#photoFilters').addEventListener('click', () => layoutPhotos(true));
+
+/* experience */
+$('#roles').innerHTML = CONTENT.roles.map(r=>`
+  <div class="role rv"><div class="role-when">${esc(r.when)}</div>
+  <div><h3>${esc(r.title)}</h3><div class="org">${esc(r.org)}</div>
+  <ul>${r.points.map(p=>`<li>${esc(p)}</li>`).join('')}</ul></div></div>`).join('');
+const cards = list => list.map((c,i)=>`<div class="card rv d${i%4}"><span class="mono">${esc(c.tag)}</span><h4>${esc(c.title)}</h4><p>${esc(c.desc)}</p></div>`).join('');
+$('#research').innerHTML = cards(CONTENT.research);
+$('#certs').innerHTML = cards(CONTENT.certs);
+$('#volunteer').innerHTML = cards(CONTENT.volunteer);
+
+/* skills */
+$('#skillGroups').innerHTML = CONTENT.skills.map((g,i)=>`
+  <div class="sg rv d${i}"><span class="mono">${g.label}</span><h4>${esc(g.name)}</h4>
+  <ul>${g.items.map(s=>`<li>${esc(s)}</li>`).join('')}</ul></div>`).join('');
+
+/* socials */
+$('#socials').innerHTML = CONTENT.socials.map(s=>`
+  <li><a href="${s.url}" target="_blank" rel="noopener"><span>${esc(s.name)}</span><span>${esc(s.handle)} ↗</span></a></li>`).join('');
+
+/* navigation */
+const nav = $('#nav'), burger = $('#burger');
+function go(id){
+  const el = document.getElementById(id); if(!el) return;
+  const y = id==='home' ? 0 : el.getBoundingClientRect().top + window.scrollY - 60;
+  window.scrollTo({top:y, behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto':'smooth'});
+  try{ history.replaceState(null,'','#'+id); }catch(e){}
+}
+document.addEventListener('click', e => {
+  const a = e.target.closest('[data-go]'); if(!a) return;
+  e.preventDefault(); nav.classList.remove('open'); burger.setAttribute('aria-expanded','false');
+  go(a.dataset.go);
+});
+burger.addEventListener('click', () => {
+  const o = nav.classList.toggle('open'); burger.setAttribute('aria-expanded', o);
+});
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 30), {passive:true});
+
+/* scrollspy */
+const spyMap = {about:'skills'};
+const links = [...document.querySelectorAll('.nav-links a')];
+const spy = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if(!en.isIntersecting) return;
+    const id = spyMap[en.target.id] || en.target.id;
+    links.forEach(l => l.classList.toggle('active', l.dataset.go === id));
+  });
+}, {rootMargin:'-45% 0px -50% 0px'});
+document.querySelectorAll('main section[id]').forEach(s => spy.observe(s));
+
+/* reveal */
+const rv = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); rv.unobserve(e.target); } }), {rootMargin:'0px 0px -8% 0px'});
+document.querySelectorAll('.rv').forEach(el => rv.observe(el));
+addEventListener('load', () => document.body.classList.add('loaded'));
+setTimeout(()=>document.body.classList.add('loaded'), 300);
+
+/* lightbox */
+const lb = $('#lb'), lbImg = $('#lbImg');
+const sets = {
+  projects: CONTENT.projects.map(p=>({img:p.img,title:p.title,desc:p.desc})),
+  art: artSorted.map(a=>({img:a.img,title:a.title,desc:a.medium+' · '+a.desc,cat:a.cat})),
+  photos: CONTENT.photos.map(p=>({img:p.img,title:p.title,desc:CONTENT.photoCatLabel[p.cat]+' · '+p.desc,cat:p.cat}))
+};
+let cur = {set:null, list:[], i:0}, lastFocus = null;
+function visibleList(group){
+  const grid = group==='art' ? $('#artGrid') : group==='photos' ? $('#photoGrid') : null;
+  if(!grid) return sets[group].map((_,i)=>i);
+  return [...grid.querySelectorAll('.tile:not(.hide)')].map(t=>+t.dataset.i);
+}
+function show(){
+  const it = sets[cur.set][cur.list[cur.i]];
+  lb.classList.add('loading');
+  const im = new Image(); im.onload = im.onerror = () => { lbImg.src = it.img; lbImg.alt = it.title; lb.classList.remove('loading'); };
+  im.src = it.img;
+  $('#lbTitle').textContent = it.title; $('#lbDesc').textContent = it.desc;
+  $('#lbCount').textContent = String(cur.i+1).padStart(2,'0') + ' / ' + String(cur.list.length).padStart(2,'0');
+}
+function openLb(group, idx){
+  lastFocus = document.activeElement;
+  cur.set = group; cur.list = visibleList(group); cur.i = Math.max(0, cur.list.indexOf(idx));
+  lb.classList.toggle('single', cur.list.length < 2);
+  show(); lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
+  document.body.style.overflow = 'hidden'; $('#lbClose').focus();
+}
+function closeLb(){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); document.body.style.overflow=''; lastFocus && lastFocus.focus(); }
+function step(d){ cur.i = (cur.i + d + cur.list.length) % cur.list.length; show(); }
+document.addEventListener('click', e => { const t = e.target.closest('[data-lb]'); if(t) openLb(t.dataset.lb, +t.dataset.i); });
+$('#lbClose').onclick = closeLb; $('#lbPrev').onclick = () => step(-1); $('#lbNext').onclick = () => step(1);
+lb.addEventListener('click', e => { if(e.target === lb || e.target.classList.contains('lb-stage')) closeLb(); });
+addEventListener('keydown', e => {
+  if(!lb.classList.contains('open')) return;
+  if(e.key==='Escape') closeLb(); if(e.key==='ArrowRight') step(1); if(e.key==='ArrowLeft') step(-1);
+});
+let tx = null;
+lb.addEventListener('touchstart', e => tx = e.touches[0].clientX, {passive:true});
+lb.addEventListener('touchend', e => { if(tx===null) return; const dx = e.changedTouches[0].clientX - tx; if(Math.abs(dx) > 50) step(dx<0?1:-1); tx=null; });
+
+/* toast + copy */
+function toast(msg){ const t=$('#toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),2200); }
+async function copy(text){
+  try{ await navigator.clipboard.writeText(text); toast('Copied to clipboard'); }
+  catch(e){ toast('Copy not available here, please select the text'); }
+}
+document.addEventListener('click', e => { const b = e.target.closest('[data-copy]'); if(b) copy(b.dataset.copy); });
+
+/* contact form: no server, so it prepares an email */
+$('#contactForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target, msg = $('#formMsg');
+  const v = k => f.elements[k].value.trim();
+  if(!v('name') || !v('email') || !v('subject') || !v('message')){ msg.textContent = 'Please fill in every field.'; return; }
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v('email'))){ msg.textContent = 'Please enter a valid email address.'; return; }
+  const body = `${v('message')}\n\n— ${v('name')} (${v('email')})`;
+  const href = 'mailto:samiashahrin33@gmail.com?subject=' + encodeURIComponent(v('subject')) + '&body=' + encodeURIComponent(body);
+  msg.innerHTML = 'Your message is ready. <a href="'+href+'">Open it in your email app</a> to send, or <a href="#" id="copyMsg">copy it</a> and email samiashahrin33@gmail.com.';
+  $('#copyMsg').addEventListener('click', ev => { ev.preventDefault(); copy('Subject: '+v('subject')+'\n\n'+body); });
+});
+
+/* open at hash */
+if(location.hash){ const id = location.hash.slice(1); setTimeout(()=>go(id), 120); }
+</script>
+</body>
+</html>
